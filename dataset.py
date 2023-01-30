@@ -56,9 +56,9 @@ def load_train_data(img_size, magnitude, batch_size):
     f.close()
     return train_loader
 
-def load_val_data(img_size, batch_size):
-    with open('val_dataset.pkl', 'rb') as f:
-        val_data, val_labels = pickle.load(f)
+def load_val_data(img_size, batch_size, val_data, val_labels):
+    # with open('val_dataset.pkl', 'rb') as f:
+        # val_data, val_labels = pickle.load(f)
     transform = transforms.Compose([
         transforms.Resize(img_size, interpolation=InterpolationMode.BICUBIC),
     ])
@@ -77,5 +77,5 @@ def load_val_data(img_size, batch_size):
         num_workers=4,
         pin_memory=True
     )
-    f.close()
+    # f.close()
     return val_loader
